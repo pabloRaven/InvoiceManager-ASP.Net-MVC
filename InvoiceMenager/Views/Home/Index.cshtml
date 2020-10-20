@@ -1,0 +1,72 @@
+﻿@model IEnumerable<InvoiceMenager.Models.Domains.Invoice>
+@{
+    ViewBag.Title = "Faktury";
+}
+<h1 class="mb-3"> Faktury</h1>
+<button class="btn btn-primary mb-3" onclick='window.location.href="@Url.Action("Invoice","Home")"'>
+    Dodaj
+</button>
+
+
+@if (Model != null && Model.Any())
+{
+    <table class="table table-striped table-dark mt-2 mb-2">
+        <thead>
+            <tr>
+                <th scope="col">tytuł</th>
+                <th scope="col">Klient</th>
+                <th scope="col">Wartośc FV</th>
+                <th scope="col">Data utworzenia</th>
+                <th scope="col">Termin płatności</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Invoice in Model)
+            {
+                <tr>
+                    <td>
+                        <a 
+                           class="font-weight-bold"
+                           href="@Url.Action("Invoice","Home",
+                                    new { id = Invoice.Id })">
+                            @Invoice.Title
+                        </a>
+
+                    </td>
+                    <td>@Invoice.Client.Name</td>
+                    <td>@Invoice.Value zł</td>
+                    <td>@Invoice.CreatedDate.ToString("dd-MM-yyyy")</td>
+                    <td>@Invoice.PaymentDate.ToString("dd-MM-yyyy")</td>
+                    <td>
+                        <button class="btn btn-danger btn-sm"
+                                onclick="deleteInvoice()">
+                            Usuń
+                        </button>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+}
+else
+{
+    <div>
+        Brak Faktur do wyświetlenia
+    </div>
+
+}
+@section Scripts
+{
+    <script type="text/javascript">
+
+        function deleteInvoice() {
+
+            if (!confirm("Czy napewno chesz usunąc fakturę???"))
+                return;
+
+
+        }
+    </script>
+}
