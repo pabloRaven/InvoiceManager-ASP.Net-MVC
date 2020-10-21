@@ -178,17 +178,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202010062120143_Init.cs" />
-    <Compile Include="Migrations\202010062120143_Init.designer.cs">
-      <DependentUpon>202010062120143_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010111404020_AddUpdate.cs" />
-    <Compile Include="Migrations\202010111404020_AddUpdate.designer.cs">
-      <DependentUpon>202010111404020_AddUpdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010122108099_Update.cs" />
-    <Compile Include="Migrations\202010122108099_Update.designer.cs">
-      <DependentUpon>202010122108099_Update.cs</DependentUpon>
+    <Compile Include="Migrations\202010211834386_lesson19.cs" />
+    <Compile Include="Migrations\202010211834386_lesson19.designer.cs">
+      <DependentUpon>202010211834386_lesson19.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Domains\Address.cs" />
@@ -501,14 +493,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202010062120143_Init.resx">
-      <DependentUpon>202010062120143_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010111404020_AddUpdate.resx">
-      <DependentUpon>202010111404020_AddUpdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010122108099_Update.resx">
-      <DependentUpon>202010122108099_Update.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202010211834386_lesson19.resx">
+      <DependentUpon>202010211834386_lesson19.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

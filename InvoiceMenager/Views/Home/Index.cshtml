@@ -26,8 +26,7 @@
             {
                 <tr>
                     <td>
-                        <a 
-                           class="font-weight-bold"
+                        <a class="font-weight-bold"
                            href="@Url.Action("Invoice","Home",
                                     new { id = Invoice.Id })">
                             @Invoice.Title
@@ -40,7 +39,7 @@
                     <td>@Invoice.PaymentDate.ToString("dd-MM-yyyy")</td>
                     <td>
                         <button class="btn btn-danger btn-sm"
-                                onclick="deleteInvoice()">
+                                onclick="deleteInvoice('@Invoice.Id',this)">
                             Usuń
                         </button>
                     </td>
@@ -61,11 +60,39 @@ else
 {
     <script type="text/javascript">
 
-        function deleteInvoice() {
+        function deleteInvoice(id, btn) {
 
             if (!confirm("Czy napewno chesz usunąc fakturę???"))
                 return;
 
+            $.ajax({
+                type: 'POST',
+                url: "@Url.Action("Delete","Home")",
+                data : {
+                    id: id
+                },
+                success: function (data)
+                {
+                    if (data.Success)
+                    {
+                        //usuwanie z bazy
+                        var row = btn.parentNode.parentNode;
+                        row.parentNode.removeChild(row);
+
+                    }
+                    else
+                    {
+                        alert(data.Message);
+                    }
+
+                },
+                error: function (data)
+                {
+                    alert(data.Message);
+                },
+
+                dataType: 'json'
+            });
 
         }
     </script>

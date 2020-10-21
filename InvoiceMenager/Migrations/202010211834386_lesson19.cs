@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Init : DbMigration
+    public partial class lesson19 : DbMigration
     {
         public override void Up()
         {
@@ -43,7 +43,7 @@
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
-                        Name = c.Int(nullable: false),
+                        Name = c.String(),
                         AddressId = c.Int(nullable: false),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
@@ -83,7 +83,7 @@
                         Title = c.String(),
                         Value = c.Decimal(nullable: false, precision: 18, scale: 2),
                         MethodOfPaymentId = c.Int(nullable: false),
-                        MyProperty = c.Int(nullable: false),
+                        Comments = c.String(),
                         PaymentDate = c.DateTime(nullable: false),
                         CreatedDate = c.DateTime(nullable: false),
                         ClientId = c.Int(nullable: false),

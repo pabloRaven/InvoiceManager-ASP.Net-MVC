@@ -53,7 +53,7 @@ namespace InvoiceMenager.Controllers
 
       
 
-        private object GetNewInvoice(string userId)
+        private Invoice GetNewInvoice(string userId)
         {
             return new Invoice
             {
