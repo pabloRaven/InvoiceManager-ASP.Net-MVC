@@ -51,7 +51,7 @@ namespace InvoiceMenager.Controllers
             };
         }
 
-      
+
 
         private Invoice GetNewInvoice(string userId)
         {
@@ -107,14 +107,21 @@ namespace InvoiceMenager.Controllers
             var userId = User.Identity.GetUserId();
             invoice.UserId = userId;
 
+
+            if (!ModelState.IsValid)
+            {
+                var vm = PrepareInvoiceVm(invoice, userId);
+                return View("Invoice", vm);
+            }
+
             if (invoice.Id == 0)
                 _invoiceRepository.Add(invoice);
 
             else
                 _invoiceRepository.Update(invoice);
 
-
             return RedirectToAction("Index");
+
         }
         [HttpPost]
         public ActionResult InvoicePosition(InvoicePosition invoicePosition)
@@ -124,6 +131,12 @@ namespace InvoiceMenager.Controllers
             var product = _productRepository
                            .GetProduct(invoicePosition.ProductId);
 
+            if (!ModelState.IsValid)
+            {
+                var vm = PrepareInvoicePositionVm(invoicePosition);
+                return View("IvoicePosition", vm);
+            }
+
             invoicePosition.Value = invoicePosition.Quantity * product.Value;
 
             if (invoicePosition.Id == 0)
@@ -132,14 +145,14 @@ namespace InvoiceMenager.Controllers
             else
                 _invoiceRepository.UpdatePosition(invoicePosition, userId);
 
-            _invoiceRepository.UpdateInvoiceValue(invoicePosition.InvoiceId,userId);
+            _invoiceRepository.UpdateInvoiceValue(invoicePosition.InvoiceId, userId);
 
             return RedirectToAction("Invoice",
                     new { id = invoicePosition.InvoiceId });
         }
 
         [HttpPost]
-        public ActionResult Delete (int id )
+        public ActionResult Delete(int id)
         {
             try
             {
@@ -150,7 +163,7 @@ namespace InvoiceMenager.Controllers
             {
                 //logowanie do pliku 
 
-                return Json(new { Succes = false , Message = exception.Message}); 
+                return Json(new { Succes = false, Message = exception.Message });
             }
 
             return Json(new { Succes = true });
@@ -158,14 +171,14 @@ namespace InvoiceMenager.Controllers
         }
 
         [HttpPost]
-        public ActionResult DeletePosition (int id, int invoiceId)
+        public ActionResult DeletePosition(int id, int invoiceId)
         {
             var invoiceValue = 0m;
             try
             {
                 var userId = User.Identity.GetUserId();
                 _invoiceRepository.DeletePosition(id, userId);
-                 invoiceValue = _invoiceRepository.UpdateInvoiceValue(invoiceId, userId);
+                invoiceValue = _invoiceRepository.UpdateInvoiceValue(invoiceId, userId);
             }
             catch (Exception exception)
             {
