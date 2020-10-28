@@ -15,17 +15,17 @@ namespace InvoiceMenager.Models.Domains
         public int Lp { get; set; }
 
         public int InvoiceId { get; set; }
+
         [Display(Name = "Wartość")]
         [Required(ErrorMessage = "Pole Wartość jest wymagane.")]
         public decimal Value { get; set; }
 
         [Display(Name = "Produkt")]
         [Required(ErrorMessage = "Pole Produkt jest wymagane.")]
-
         public int ProductId { get; set; }
+
         [Display(Name = "Ilość")]
         [Required(ErrorMessage = "Pole Ilość jest wymagane.")]
-
         public int Quantity { get; set; }
 
         public Invoice Invoice { get; set; }

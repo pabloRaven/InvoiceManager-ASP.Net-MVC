@@ -12,6 +12,7 @@ namespace InvoiceMenager.Models.Domains
         }
 
         public int Id { get; set; }
+
         [Required]
         public string Name { get; set; }
         public decimal Value { get; set; }

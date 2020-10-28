@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using InvoiceMenager.Models.Domains;
@@ -17,6 +18,7 @@ namespace InvoiceMenager.Models
             Clients = new Collection<Client>();
         }
 
+        [Required]
         public string Name { get; set; }
         public int AddressId { get; set; }
 

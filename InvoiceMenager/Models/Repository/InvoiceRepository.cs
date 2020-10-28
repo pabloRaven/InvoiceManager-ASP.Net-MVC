@@ -30,7 +30,7 @@ namespace InvoiceMenager.Models.Repository
                     .Include(x => x.MethodOfPayment)
                     .Include(x => x.User)
                     .Include(x => x.User.Address)
-                    .Include(x => x.Client.Address)
+                   // .Include(x => x.ClientId.Address)
                     .Single(x => x.Id == id && x.UserId == userId);
 
             }

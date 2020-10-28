@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 namespace InvoiceMenager.Models.Domains
 {
     public class Address
-    {
+    { 
         public Address()
         {
             Clients = new Collection<Client>();

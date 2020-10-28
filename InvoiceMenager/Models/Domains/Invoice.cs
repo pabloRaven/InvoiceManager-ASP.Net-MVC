@@ -23,14 +23,17 @@ namespace InvoiceMenager.Models.Domains
         [Display(Name = "Wartość")]
         [Required(ErrorMessage = "Pole Wartość jest wymagane")]
         public decimal Value { get; set; }
+
         [Display(Name = "Sposób płatności")]
         [Required(ErrorMessage = "Pole Sposób płatności  jest wymagane.")]
         public int MethodOfPaymentId { get; set; }
+
         [Display(Name = "Uwagi")]
         public string Comments { get; set; }
         [Display(Name = "Termin Płatności")]
         [Required(ErrorMessage = "Pole Termin Płatności jest wymagane.")]
         public DateTime PaymentDate { get; set; }
+
         [Display(Name = "Data utworzenia")]
         public DateTime CreatedDate { get; set; }
         [Display(Name = "Klient")]

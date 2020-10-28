@@ -9,7 +9,8 @@ namespace InvoiceMenager.Models.Domains
     {
         public Client()
         {
-            Clients = new Collection<Client>();
+
+            Invoices = new Collection<Invoice>();
         }
         
 
@@ -24,10 +25,8 @@ namespace InvoiceMenager.Models.Domains
         [ForeignKey("User")]
         public string UserId { get; set; }
 
-
-
         public Address Address { get; set; }
-        public ICollection<Client> Clients { get; set; }
+        public ICollection<Invoice> Invoices { get; set; }
         public ApplicationUser User { get; set; }
     }
 }

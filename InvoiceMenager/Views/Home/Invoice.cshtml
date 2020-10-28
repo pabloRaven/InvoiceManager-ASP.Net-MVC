@@ -41,7 +41,7 @@
             <div class="form-group">
                 @Html.LabelFor(x => x.Invoice.Title)
                 @Html.TextBoxFor(x => x.Invoice.Title,
-                new { @class = "form-control", autofocus = "autofocus" }),
+                new { @class = "form-control", autofocus = "autofocus" })
                 @Html.ValidationMessageFor(x => x.Invoice.Title)
 
             </div>
@@ -50,7 +50,7 @@
                 @Html.LabelFor(x => x.Invoice.ClientId)
                 @Html.DropDownListFor(x => x.Invoice.ClientId,
                   new SelectList(Model.Clients, "Id", "Name"), "--Wybierz klienta--",
-                  new { @class = "form-control" }),
+                  new { @class = "form-control" })
                 @Html.ValidationMessageFor(x => x.Invoice.ClientId)
             </div>
 
@@ -67,7 +67,7 @@
                 @Html.LabelFor(x => x.Invoice.MethodOfPaymentId)
                 @Html.DropDownListFor(x => x.Invoice.MethodOfPaymentId,
                     new SelectList(Model.MethodOfPayments, "Id", "Name"), "--Wybierz sposób płatności--",
-                    new { @class = "form-control" }),
+                    new { @class = "form-control" })
                 @Html.ValidationMessageFor(x => x.Invoice.MethodOfPaymentId)
             </div>
 
@@ -87,7 +87,7 @@
             <div class="form-group">
                 @Html.LabelFor(x => x.Invoice.Comments)
                 @Html.TextAreaFor(x => x.Invoice.Comments,
-                    new { @class = "form-control" }),
+                    new { @class = "form-control" })
                 @Html.ValidationMessageFor(x => x.Invoice.Comments)
 
             </div>

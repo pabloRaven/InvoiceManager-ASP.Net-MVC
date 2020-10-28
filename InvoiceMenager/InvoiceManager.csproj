@@ -178,9 +178,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202010211834386_lesson19.cs" />
-    <Compile Include="Migrations\202010211834386_lesson19.designer.cs">
-      <DependentUpon>202010211834386_lesson19.cs</DependentUpon>
+    <Compile Include="Migrations\202010281824059_Init.cs" />
+    <Compile Include="Migrations\202010281824059_Init.designer.cs">
+      <DependentUpon>202010281824059_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Domains\Address.cs" />
@@ -493,8 +493,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202010211834386_lesson19.resx">
-      <DependentUpon>202010211834386_lesson19.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202010281824059_Init.resx">
+      <DependentUpon>202010281824059_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
